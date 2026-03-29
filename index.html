@@ -93,9 +93,10 @@
     <!-- Top Navigation -->
     <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(44,52,55,0.06)]">
         <nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
-            <a href="#" class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline hover:text-primary transition-colors text-left">
+            <!-- 👇 로고를 클릭해도 홈(대시보드)으로 돌아가게 설정 -->
+            <button onclick="closeApp()" class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline hover:text-primary transition-colors text-left">
                 The Curated Canvas
-            </a>
+            </button>
             <div class="flex items-center gap-4">
                 <button class="material-symbols-outlined p-2 text-slate-700 dark:text-slate-300 active:scale-95 transition-transform duration-200">settings</button>
                 <button class="material-symbols-outlined p-2 text-slate-700 dark:text-slate-300 active:scale-95 transition-transform duration-200">account_circle</button>
@@ -104,7 +105,8 @@
     </header>
 
     <main class="pt-32 pb-24 px-8 max-w-7xl mx-auto flex-grow w-full flex flex-col">
-        <div class="w-full">
+        <!-- View 1: Dashboard (기존 대시보드 화면을 묶는 컨테이너) -->
+        <div id="dashboard-view" class="w-full">
             <!-- Hero Section -->
             <section class="mb-20">
                 <div class="max-w-3xl">
@@ -120,10 +122,8 @@
 
             <!-- Application Grid -->
             <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            
-            <!-- App Card 1 -->
-            <!-- 👇 다이렉트 URL 연결 적용 (target="_blank"로 새 탭에서 열림) -->
-            <a href="https://script.google.com/macros/s/AKfycbxI0d2tkbze57XTsHcEn9qKG8JMz5uP3IQn-LvOy19QH6mABExD_NcjO1NndzHkBiZ4/exec" target="_blank" rel="noopener noreferrer" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
+            <!-- 👇 onclick 이벤트를 통해 앱을 현재 화면(iframe)에서 엽니다 -->
+            <a href="javascript:void(0)" onclick="openApp('https://script.google.com/macros/s/AKfycbxI0d2tkbze57XTsHcEn9qKG8JMz5uP3IQn-LvOy19QH6mABExD_NcjO1NndzHkBiZ4/exec')" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
                 <div class="mb-8 w-14 h-14 rounded-lg bg-surface-container-low flex items-center justify-center text-primary transition-colors group-hover:bg-primary/10">
                     <span class="material-symbols-outlined text-3xl" data-icon="groups">groups</span>
                 </div>
@@ -137,8 +137,8 @@
             </a>
 
             <!-- App Card 2 -->
-            <!-- 👇 다이렉트 URL 연결 적용 -->
-            <a href="https://script.google.com/macros/s/AKfycbx4ChXH5BElJCTOijnsjLAIbPPHmDr9m-38bsI8d5eP94PdN09HHgU6A9gfH-UjyOolWg/exec" target="_blank" rel="noopener noreferrer" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
+            <!-- 👇 onclick 이벤트를 통해 앱을 현재 화면(iframe)에서 엽니다 -->
+            <a href="javascript:void(0)" onclick="openApp('https://script.google.com/macros/s/AKfycbx4ChXH5BElJCTOijnsjLAIbPPHmDr9m-38bsI8d5eP94PdN09HHgU6A9gfH-UjyOolWg/exec')" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
                 <div class="mb-8 w-14 h-14 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container transition-colors group-hover:bg-secondary-container/80">
                     <span class="material-symbols-outlined text-3xl" data-icon="account_balance_wallet">account_balance_wallet</span>
                 </div>
@@ -152,8 +152,8 @@
             </a>
 
             <!-- App Card 3 -->
-            <!-- 👇 다이렉트 URL 연결 적용 -->
-            <a href="https://script.google.com/macros/s/AKfycbxBzQcfi6FdKC28NvUMTzTNJP-fqsoiMxZdAu2o3lj5S0PiGIrllE3GRslKnhWiGF5bMQ/exec" target="_blank" rel="noopener noreferrer" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
+            <!-- 👇 onclick 이벤트를 통해 앱을 현재 화면(iframe)에서 엽니다 -->
+            <a href="javascript:void(0)" onclick="openApp('https://script.google.com/macros/s/AKfycbxom_RRKTgUQWVmlM9QMUq6nBDpUTX0p6uOkZJ8ACYQyzaWnAtqT4yvyU5oEvVFr2napg/exec')" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
                 <div class="mb-8 w-14 h-14 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary-container transition-colors group-hover:bg-tertiary-container/80">
                     <span class="material-symbols-outlined text-3xl" data-icon="menu_book">menu_book</span>
                 </div>
@@ -167,8 +167,8 @@
             </a>
 
             <!-- App Card 4 -->
-            <!-- 👇 아직 URL이 없는 경우 #으로 처리 -->
-            <a href="#" target="_blank" rel="noopener noreferrer" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
+            <!-- 👇 onclick 이벤트를 통해 앱을 현재 화면(iframe)에서 엽니다 -->
+            <a href="javascript:void(0)" onclick="openApp('[여기에_성장분석대시보드_앱_URL_입력]')" class="group app-card-cursor relative bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,52,55,0.08)] hover:-translate-y-1 ring-1 ring-outline-variant/15 flex flex-col h-full">
                 <div class="mb-8 w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface-variant transition-colors group-hover:bg-surface-variant/80">
                     <span class="material-symbols-outlined text-3xl" data-icon="analytics">analytics</span>
                 </div>
@@ -177,19 +177,41 @@
                     개인 프로젝트와 디지털 활동 성과에 대한 실시간 데이터 시각화 및 인사이트를 제공합니다.
                 </p>
                 <div class="w-full py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary rounded-lg font-semibold tracking-tight text-center active:scale-95 transition-all">
-                    앱 준비중
+                    앱 실행하기
                 </div>
             </a>
 
-            </section>
+        </section>
 
-            <!-- Featured Module (이미지 영역) -->
-            <section class="mt-16">
-                <div class="group relative bg-primary rounded-xl overflow-hidden ring-1 ring-outline-variant/15 aspect-[16/7]">
-                    <img alt="Featured Module Image" class="w-full h-full object-cover" 
-                         src="https://d1bxoovxwhb3wiu8.public.blob.vercel-storage.com/KakaoTalk_20260329_150253767.jpg"/>
-                </div>
-            </section>
+        <!-- Featured Module (이미지 영역) -->
+        <section class="mt-16">
+            <div class="group relative bg-primary rounded-xl overflow-hidden ring-1 ring-outline-variant/15 aspect-[16/7]">
+                <!-- 👇 src 속성 안에 원하시는 이미지 파일 경로나 URL을 넣어주세요. -->
+                <img alt="Featured Module Image" class="w-full h-full object-cover" 
+                     src="https://d1bxoovxwhb3wiu8.public.blob.vercel-storage.com/KakaoTalk_20260329_150253767.jpg"/>
+            </div>
+        </section>
+        </div> <!-- dashboard-view 끝 -->
+
+        <!-- View 2: App Iframe View (전체 화면 오버레이로 변경) -->
+        <div id="app-view" class="hidden fixed inset-0 z-40 bg-surface-container-lowest flex-col pt-[72px]">
+            <!-- Back Button Bar (상단 바) -->
+            <div class="flex items-center justify-between px-6 py-3 bg-white border-b border-outline-variant/20 shadow-sm z-10 shrink-0">
+                <button onclick="closeApp()" class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg shadow-sm text-primary hover:bg-surface-container transition-colors font-semibold ring-1 ring-outline-variant/20 active:scale-95 text-sm">
+                    <span class="material-symbols-outlined text-lg">arrow_back</span>
+                    대시보드로 돌아가기
+                </button>
+                <!-- 👇 모바일에서 화면이 열리지 않을 때를 대비한 '새 창에서 열기' 버튼 추가 -->
+                <a id="app-external-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold">
+                    새 창에서 열기
+                    <span class="material-symbols-outlined text-base">open_in_new</span>
+                </a>
+            </div>
+            <!-- Iframe Container (반응형 지원을 위해 구조 개선) -->
+            <div class="flex-1 w-full bg-surface-container-lowest overflow-hidden flex">
+                <!-- 👇 sandbox 속성을 제거하여 구글 스크립트가 정상적으로 로드되도록 복구했습니다. -->
+                <iframe id="app-iframe" src="" class="w-full h-full border-0 block flex-1" style="width: 100%; height: 100%;" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
 
@@ -200,9 +222,10 @@
                 Editorial Minimalist
             </div>
             <div class="flex items-center gap-8 font-body text-sm text-slate-600 dark:text-slate-400">
-                <a href="#" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">개인정보 처리방침</a>
-                <a href="#" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">이용약관</a>
-                <a href="#" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">고객지원</a>
+                <!-- 👇 하단 푸터 링크 설정 -->
+                <a href="[여기에_개인정보처리방침_URL_입력]" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">개인정보 처리방침</a>
+                <a href="[여기에_이용약관_URL_입력]" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">이용약관</a>
+                <a href="[여기에_고객지원_URL_입력]" class="hover:text-slate-800 dark:hover:text-slate-200 transition-all opacity-80 hover:opacity-100">고객지원</a>
             </div>
             <p class="text-slate-600 dark:text-slate-400 font-body text-sm">
                 © 2026 Editorial  Raphael. 모든 권리 보유.
@@ -210,5 +233,41 @@
         </div>
     </footer>
 
+    <!-- 앱 뷰/대시보드 전환을 위한 Javascript -->
+    <script>
+        function openApp(url) {
+            // URL이 아직 입력되지 않은 플레이스홀더인 경우 알림
+            if(url.includes('[여기에_')) {
+                alert('아직 URL이 입력되지 않았습니다.');
+                return;
+            }
+            
+            // 앱 뷰(전체 화면 오버레이)를 표시
+            const appView = document.getElementById('app-view');
+            appView.classList.remove('hidden');
+            appView.classList.add('flex');
+            
+            // 배경(대시보드) 스크롤 방지
+            document.body.style.overflow = 'hidden';
+            
+            // iframe에 앱 URL 로드 및 새 창 버튼에 URL 할당
+            document.getElementById('app-iframe').src = url;
+            document.getElementById('app-external-link').href = url;
+        }
+
+        function closeApp() {
+            // 앱 뷰를 숨김
+            const appView = document.getElementById('app-view');
+            appView.classList.add('hidden');
+            appView.classList.remove('flex');
+            
+            // 배경(대시보드) 스크롤 복구
+            document.body.style.overflow = '';
+            
+            // iframe을 비워서 앱 백그라운드 동작을 중지
+            document.getElementById('app-iframe').src = '';
+            document.getElementById('app-external-link').href = '#';
+        }
+    </script>
 </body>
 </html>
